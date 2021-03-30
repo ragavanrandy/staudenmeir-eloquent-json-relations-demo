@@ -56,6 +56,6 @@ class User extends Authenticatable
      * get user orders
      */
     public function orders(){
-        return $this->hasManyJson(Order::class, 'worklogs->[]->user_id');
+        return $this->hasManyJson(Order::class, 'worklogs[]->user_id', 'user_id');
     }
 }

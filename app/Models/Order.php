@@ -39,6 +39,6 @@ class Order extends Model
     ];
 
     public function user(){
-        return $this->belongsToJson(User::class, 'worklogs->[]->user_id');
+        return $this->belongsToJson(User::class, 'worklogs[]->user_id', 'user_id');
     }
 }
