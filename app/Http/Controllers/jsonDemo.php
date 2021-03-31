@@ -12,16 +12,8 @@ use App\Models\Order;
 class jsonDemo extends Controller
 {
     public function index(){
-        // phpinfo(); exit;
-        // DB::enableQueryLog();
-        // try{
-            $users = User::with('orders')->get();
-        // }
-        // catch(Exception $e){
-        //     dd(DB::getQueryLog());
-        // }
+        $users = User::with('orders')->get();
         dd($users[0]);
-        // dd(DB::getQueryLog());
     }
 
     public function userOrders($id=null){
@@ -29,6 +21,9 @@ class jsonDemo extends Controller
             $user = User::find($id);
             $user->load('orders');
             dd($user);
+        }
+        else{
+            echo "please provide user id";
         }
     }
 }
